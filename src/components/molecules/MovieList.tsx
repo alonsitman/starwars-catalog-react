@@ -2,7 +2,7 @@ import { CSSProperties, FC } from "react";
 import MovieItem, { MovieItemProps } from "../atoms/MovieItem";
 
 const movieListStyles: CSSProperties = {
-  backgroundColor: "#ececec",
+  backgroundColor: "#20232a",
   height: "100%",
   paddingTop: "1em",
   width: "100%",

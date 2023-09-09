@@ -1,10 +1,5 @@
 import { CSSProperties, FC, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
-
-
-
-
-
 import MovieList from "../molecules/MovieList";
 import MoviePreview from "../molecules/MoviePreview";
 
@@ -22,12 +17,12 @@ const movieSectionWrapperStyle: CSSProperties = {
   height: "calc(100vh - 60px)",
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
+  alignItems: "left",
 };
 
 const moviePreviewWrapperStyle: CSSProperties = {
   ...movieSectionWrapperStyle,
-  textAlign: "center",
+  textAlign: "left",
   marginRight: "1em",
   alignSelf: "flex-start",
 };
@@ -44,7 +39,6 @@ const movieListWrapperStyle: CSSProperties = {
 const mobileStyles: CSSProperties = {
   flexDirection: "column", // Vertical layout for mobile
 };
-
 
 export type MovieData = {
   id: string;
@@ -88,8 +82,10 @@ const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
    // Check if movieListData is empty or undefined
    if (!movieListData || movieListData.length === 0) {
     return (
-    <div>
-      {<TailSpin radius={20} />}
+      <div className="loader-container">
+        <div className="loader">
+          <TailSpin color="#0073e6" height={200} width={200} />
+        </div>
     </div>
     );
    }

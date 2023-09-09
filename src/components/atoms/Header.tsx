@@ -5,7 +5,7 @@ export const headerHeight = "60px";
 const HeaderStyle: CSSProperties = {
   height: headerHeight,
   backgroundColor: "#20232a",
-  color: "#fff",
+  color: "#ffc300",
   display: "flex",
   flexDirection: "row",
   alignItems: "center",

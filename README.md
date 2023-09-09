@@ -16,7 +16,7 @@ You can see a live demo of the app using this link: [Demo](https://alonsitman.gi
 ## Installation
 To run this application locally, follow these steps:
 1. Clone the repository:
-git clone [Repo](https://github.com/alonsitman/starwars-catalog-react.git)
+git clone https://github.com/alonsitman/starwars-catalog-react.git
 
 2. Navigate to the project directory:
 cd starwars-catalog-react

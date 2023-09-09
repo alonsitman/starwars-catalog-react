@@ -1,5 +1,7 @@
 // src/services/starWarsService.ts
 export interface Movie {
+    director: string;
+    release_date: string;
     episode_id: number;
     title: string;
     opening_crawl: string;

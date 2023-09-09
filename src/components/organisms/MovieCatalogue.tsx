@@ -1,4 +1,9 @@
 import { CSSProperties, FC, useState } from "react";
+import { TailSpin } from "react-loader-spinner";
+
+
+
+
 
 import MovieList from "../molecules/MovieList";
 import MoviePreview from "../molecules/MoviePreview";
@@ -33,39 +38,51 @@ const movieListWrapperStyle: CSSProperties = {
   alignSelf: "flex-end"
 };
 
-type MovieData = {
-  title: string;
-  year: string;
+export type MovieData = {
   id: string;
+  title: string;
+  release_date: string;
   poster: string;
   director: string;
-  casts: string;
-  genre: string;
 };
+
 
 type MovieCatalogueProps = {
   movieListData: MovieData[];
 };
 
 const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
-  const [selectedMovieId, setSelectedMovieId] = useState<string>(
-    movieListData[0].id
-  );
+  
+   // Initialize the state at the top level with a conditional value
+   const initialSelectedMovieId = movieListData.length > 0 ? movieListData[0].id : '';
+
+   // Use the useState hook to manage the selectedMovieId state
+   const [selectedMovieId, setSelectedMovieId] = useState<string>(
+     initialSelectedMovieId
+   );
+ 
+   // Check if movieListData is empty or undefined
+   if (!movieListData || movieListData.length === 0) {
+    return (
+    <div>
+      {<TailSpin radius={20} />}
+    </div>
+    );
+   }
+
   const selectedMovie =
     movieListData.find((movie) => movie.id === selectedMovieId) ||
     movieListData[0];
 
-  const { title, poster, year, director, casts, genre } = selectedMovie;
+  const { title, poster, release_date, director } = selectedMovie;
   return (
     <div style={movieCatalogueWrapperStyle}>
       <div style={moviePreviewWrapperStyle}>
         <MoviePreview
           movieTitle={title}
           posterUrl={poster}
-          releaseYear={year}
+          releaseYear={release_date}
           director={director}
-          casts={casts}
-          genre={genre}
         />
       </div>
       <div style={movieListWrapperStyle}>

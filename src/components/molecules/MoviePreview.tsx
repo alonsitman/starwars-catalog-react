@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from "react";
+import { CSSProperties, FC, useEffect, useState } from "react";
 import MovieInfo from "../atoms/MovieInfo";
 import MovieLabel from "../atoms/MovieLabel";
 import MoviePoster from "../atoms/MoviePoster";
@@ -13,13 +13,17 @@ const moviePreviewStyle: CSSProperties = {
   width: "100%"
 };
 
+const favoriteButtonStyle: CSSProperties = {
+  cursor: "pointer",
+  fontSize: "24px",
+  color: "grey",
+};
+
 export type MoviePreviewProps = {
   movieTitle: string;
   posterUrl: string;
   releaseYear: string;
   director: string;
-  casts: string;
-  genre: string;
 };
 
 const MoviePreview: FC<MoviePreviewProps> = ({
@@ -27,16 +31,22 @@ const MoviePreview: FC<MoviePreviewProps> = ({
   posterUrl,
   releaseYear,
   director,
-  casts,
-  genre
 }) => {
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <div style={moviePreviewStyle}>
       <MoviePoster movieTitle={movieTitle} posterUrl={posterUrl} />
       <MovieLabel title={movieTitle} year={releaseYear} />
       <MovieInfo label={"Director"} value={director} />
-      <MovieInfo label={"Casts"} value={casts} />
-      <MovieInfo label={"Genre"} value={genre} />
+      <button onClick={toggleFavorite}>
+        {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+      </button>
     </div>
   );
 };

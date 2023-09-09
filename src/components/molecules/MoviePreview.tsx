@@ -34,15 +34,32 @@ const MoviePreview: FC<MoviePreviewProps> = ({
 }) => {
 
   return (
-    <div style={moviePreviewStyle}>
-      <MoviePoster movieTitle={movieTitle} posterUrl={posterUrl} />
-      <MovieLabel title={movieTitle} year={releaseYear} />
-      <MovieInfo label={"Director"} value={director} /> 
-      <MovieInfo label={"Description"} value={description} /> 
-      <button onClick={onFavoriteToggle}>
-        {isFavorite ? "Add to Favorites" : "Remove from Favorites" }
-      </button>
-    </div>
+  <div style={moviePreviewStyle}>
+  <div style={{ position: "relative" }}>
+    <MoviePoster movieTitle={movieTitle} posterUrl={posterUrl} />
+    <button
+      onClick={onFavoriteToggle}
+      style={{
+        position: "absolute",
+        top: "10px",
+        right: "10px",
+        backgroundColor: "transparent",
+        border: "none",
+        cursor: "pointer",
+      }}
+    >
+      {isFavorite ? (
+        <span style={{ color: "red", fontSize: "24px" }}>&#10084;</span>
+      ) : (
+        <span style={{ color: "gray", fontSize: "24px" }}>&#10084;</span>
+      )}
+    </button>
+  </div>
+  <MovieLabel title={movieTitle} year={releaseYear} />
+  <MovieInfo label={"Director"} value={director} />
+  <MovieInfo label={"Description"} value={description} />
+</div>
+
   );
 };
 

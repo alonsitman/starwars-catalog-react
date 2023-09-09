@@ -3,7 +3,7 @@ import "./styles.css";
 
 import Header from "./components/atoms/Header";
 import MovieCatalogue from "./components/organisms/MovieCatalogue";
-import data from "../static/movie-data.json";
+import data from "./static/movie-data.json";
 
 const App: FC<{}> = () => {
   return (

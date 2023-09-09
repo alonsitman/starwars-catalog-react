@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/starwars-catalog-react/static/css/main.d7f52b5c.css",
+    "main.js": "/starwars-catalog-react/static/js/main.d23da8a1.js",
+    "index.html": "/starwars-catalog-react/index.html",
+    "main.d7f52b5c.css.map": "/starwars-catalog-react/static/css/main.d7f52b5c.css.map",
+    "main.d23da8a1.js.map": "/starwars-catalog-react/static/js/main.d23da8a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7f52b5c.css",
+    "static/js/main.d23da8a1.js"
+  ]
+}

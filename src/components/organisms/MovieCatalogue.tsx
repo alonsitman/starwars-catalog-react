@@ -12,9 +12,9 @@ const movieCatalogueWrapperStyle: CSSProperties = {
   height: "100%",
   overflow: "hidden",
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "row", // Default horizontal layout for desktop
   justifyContent: "space-evenly",
-  width: "100%"
+  width: "100%",
 };
 
 const movieSectionWrapperStyle: CSSProperties = {
@@ -22,21 +22,29 @@ const movieSectionWrapperStyle: CSSProperties = {
   height: "calc(100vh - 60px)",
   display: "flex",
   flexDirection: "column",
-  alignItems: "center"
+  alignItems: "center",
 };
 
 const moviePreviewWrapperStyle: CSSProperties = {
   ...movieSectionWrapperStyle,
   textAlign: "center",
   marginRight: "1em",
-  alignSelf: "flex-start"
+  alignSelf: "flex-start",
 };
 
 const movieListWrapperStyle: CSSProperties = {
   ...movieSectionWrapperStyle,
   textAlign: "left",
-  alignSelf: "flex-end"
+  alignSelf: "center",
+  width: "100%", // Full width by default
+  maxWidth: "20%",
 };
+
+// Media query for screens with a maximum width of 767px (adjust as needed)
+const mobileStyles: CSSProperties = {
+  flexDirection: "column", // Vertical layout for mobile
+};
+
 
 export type MovieData = {
   id: string;
@@ -44,6 +52,7 @@ export type MovieData = {
   release_date: string;
   poster: string;
   director: string;
+  opening_crawl: string;
 };
 
 
@@ -89,10 +98,11 @@ const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
     movieListData.find((movie) => movie.id === selectedMovieId) ||
     movieListData[0];
 
-  const { title, poster, release_date, director } = selectedMovie;
+  const { title, poster, release_date, director, opening_crawl } = selectedMovie;
+
   return (
-    <div style={movieCatalogueWrapperStyle}>
-            <div style={movieListWrapperStyle}>
+    <div style={{ ...movieCatalogueWrapperStyle, ...(window.innerWidth <= 767 ? mobileStyles : {}) }}>
+      <div style={window.innerWidth > 767 ? movieListWrapperStyle : {}}>
         <MovieList
           movieItemList={movieListData}
           onMovieSelected={setSelectedMovieId}
@@ -105,6 +115,7 @@ const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
           posterUrl={poster}
           releaseYear={release_date}
           director={director}
+          description={opening_crawl}
           isFavorite={favorites[selectedMovieId]}
           onFavoriteToggle={() => toggleFavorite(selectedMovieId)}
         />

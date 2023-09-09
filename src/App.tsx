@@ -45,6 +45,8 @@ const App: FC<{}> = () => {
               ? `https://image.tmdb.org/t/p/w500${tmdbData.poster_path}`
               : "", // Use the poster URL from TMDB if available
             director: movie.director,
+            opening_crawl: movie.opening_crawl
+
           };
         });
 

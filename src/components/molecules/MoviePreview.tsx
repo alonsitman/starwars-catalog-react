@@ -18,6 +18,7 @@ export type MoviePreviewProps = {
   posterUrl: string;
   releaseYear: string;
   director: string;
+  description: string;
   isFavorite: boolean; // Add a prop for favorite status
   onFavoriteToggle: () => void; // Add a prop for the toggle function
 };
@@ -27,6 +28,7 @@ const MoviePreview: FC<MoviePreviewProps> = ({
   posterUrl,
   releaseYear,
   director,
+  description,
   isFavorite,
   onFavoriteToggle,
 }) => {
@@ -36,6 +38,7 @@ const MoviePreview: FC<MoviePreviewProps> = ({
       <MoviePoster movieTitle={movieTitle} posterUrl={posterUrl} />
       <MovieLabel title={movieTitle} year={releaseYear} />
       <MovieInfo label={"Director"} value={director} /> 
+      <MovieInfo label={"Description"} value={description} /> 
       <button onClick={onFavoriteToggle}>
         {isFavorite ? "Add to Favorites" : "Remove from Favorites" }
       </button>

@@ -9,7 +9,8 @@ const movieItemStyle = (selected?: boolean): CSSProperties => {
     paddingRight: "0.75em",
     paddingTop: "0.2em",
     paddingBottom: "0.2em",
-    color: "#ffc300"
+    color: "#ffc300",
+    fontFamily: 'StarWarsFont'
   };
 };
 

@@ -60,6 +60,21 @@ const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
    const [selectedMovieId, setSelectedMovieId] = useState<string>(
      initialSelectedMovieId
    );
+
+   // Initialize the favorites state using localStorage
+  const initialFavorites = JSON.parse(localStorage.getItem("favorites") || "{}");
+  const [favorites, setFavorites] = useState(initialFavorites);
+
+  // Function to toggle the favorite status of a movie
+  const toggleFavorite = (movieId: string) => {
+    // Update the favorites state
+    const updatedFavorites = { ...favorites };
+    updatedFavorites[movieId] = !updatedFavorites[movieId];
+    setFavorites(updatedFavorites);
+
+    // Update localStorage
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
  
    // Check if movieListData is empty or undefined
    if (!movieListData || movieListData.length === 0) {
@@ -83,6 +98,8 @@ const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
           posterUrl={poster}
           releaseYear={release_date}
           director={director}
+          isFavorite={favorites[selectedMovieId]}
+          onFavoriteToggle={() => toggleFavorite(selectedMovieId)}
         />
       </div>
       <div style={movieListWrapperStyle}>

@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import "./styles.css";
 import { fetchMovies, Movie } from "./services/StarWarsService";
-import MovieItem, { MovieItemProps } from "./components/atoms/MovieItem";
 import { MovieData } from "./components/organisms/MovieCatalogue";
 
 import Header from "./components/atoms/Header";
@@ -23,7 +22,6 @@ const App: FC<{}> = () => {
           release_date: movie.release_date,
           poster: "",
           director: movie.director,
-          isFavorite: false,
         }));
         setMovieItemList(mappedData);
       })

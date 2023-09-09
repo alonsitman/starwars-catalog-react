@@ -15,7 +15,7 @@ const HeaderStyle: CSSProperties = {
 const Header: FC = () => {
   return (
     <div className="header" style={HeaderStyle}>
-      <h1>{"🎥 Movie Catalogue"}</h1>
+      <h1>{"👨⚔️🧑 Star Wars Films Catalog"}</h1>
     </div>
   );
 };

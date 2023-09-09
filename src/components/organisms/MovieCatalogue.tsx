@@ -4,6 +4,7 @@ import MovieList from "../molecules/MovieList";
 import MoviePreview from "../molecules/MoviePreview";
 
 const movieCatalogueWrapperStyle: CSSProperties = {
+  backgroundColor: "#808080",
   height: "100%",
   overflow: "hidden",
   display: "flex",

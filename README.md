@@ -37,11 +37,11 @@ npm start
 
 5. Open your web browser and visit http://localhost:3000 to access the application.
 
-Technologies
+## Technologies
 - React
 - The Star Wars API
 - Axios
 - CSS
 
-Contributing
+## Contributing
 Contributions are welcome! Fork and submit a pull request to get involved.

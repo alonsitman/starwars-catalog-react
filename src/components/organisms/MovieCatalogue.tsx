@@ -92,6 +92,13 @@ const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
   const { title, poster, release_date, director } = selectedMovie;
   return (
     <div style={movieCatalogueWrapperStyle}>
+            <div style={movieListWrapperStyle}>
+        <MovieList
+          movieItemList={movieListData}
+          onMovieSelected={setSelectedMovieId}
+          selectedMovieId={selectedMovieId}
+        />
+      </div>
       <div style={moviePreviewWrapperStyle}>
         <MoviePreview
           movieTitle={title}
@@ -100,13 +107,6 @@ const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
           director={director}
           isFavorite={favorites[selectedMovieId]}
           onFavoriteToggle={() => toggleFavorite(selectedMovieId)}
-        />
-      </div>
-      <div style={movieListWrapperStyle}>
-        <MovieList
-          movieItemList={movieListData}
-          onMovieSelected={setSelectedMovieId}
-          selectedMovieId={selectedMovieId}
         />
       </div>
     </div>

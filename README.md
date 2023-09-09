@@ -19,21 +19,27 @@ To run this application locally, follow these steps:
 git clone https://github.com/alonsitman/starwars-catalog-react.git
 
 2. Navigate to the project directory:
+```shell
 cd starwars-catalog-react
+```
 
 3. Install dependencies:
+```shell
 npm install
+```
 
 4. Start the development server:
+```shell
 npm start
+```
 
 5. Open your web browser and visit http://localhost:3000 to access the application.
 
 Technologies
-React
-The Star Wars API
-Axios
-CSS
+- React
+- The Star Wars API
+- Axios
+- CSS
 
 Contributing
-We welcome contributions! Fork and submit a pull request to get involved.
+Contributions are welcome! Fork and submit a pull request to get involved.

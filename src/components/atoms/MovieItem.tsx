@@ -2,7 +2,7 @@ import { CSSProperties, FC } from "react";
 
 const movieItemStyle = (selected?: boolean): CSSProperties => {
   return {
-    backgroundColor: selected ? "#a9b3c4" : "#20232a",
+    backgroundColor: selected ? "#808080" : "#20232a",
     fontWeight: selected ? "bold" : "normal",
     cursor: "pointer",
     paddingLeft: "0.75em",

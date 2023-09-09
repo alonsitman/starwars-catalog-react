@@ -4,6 +4,7 @@ import MovieLabel from "../atoms/MovieLabel";
 import MoviePoster from "../atoms/MoviePoster";
 
 const moviePreviewStyle: CSSProperties = {
+  backgroundColor: "#808080",
   padding: "0.75em",
   paddingTop: "1em",
   display: "flex",

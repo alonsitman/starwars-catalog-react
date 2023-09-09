@@ -1,4 +1,5 @@
 import { CSSProperties, FC } from "react";
+import starWarsLogo from "../../star-wars-logo.png"; // Import your static image
 
 export const headerHeight = "60px";
 
@@ -12,10 +13,15 @@ const HeaderStyle: CSSProperties = {
   justifyContent: "center"
 };
 
+const ImageStyle: CSSProperties = {
+  maxWidth: "100%",
+  maxHeight: "100%",
+};
+
 const Header: FC = () => {
   return (
     <div className="header" style={HeaderStyle}>
-      <h1>{"👨⚔️🧑 Star Wars Films Catalog"}</h1>
+      <img src={starWarsLogo} alt="Star Wars Logo" style={ImageStyle} />
     </div>
   );
 };

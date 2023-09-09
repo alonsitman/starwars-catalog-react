@@ -56,8 +56,10 @@ type MovieCatalogueProps = {
 
 const MovieCatalogue: FC<MovieCatalogueProps> = ({ movieListData }) => {
   
+  const defaultMovieId = '4';
+
    // Initialize the state at the top level with a conditional value
-   const initialSelectedMovieId = movieListData.length > 0 ? movieListData[0].id : '';
+   const initialSelectedMovieId = movieListData.length > 0 ? movieListData[0].id : defaultMovieId;
 
    // Use the useState hook to manage the selectedMovieId state
    const [selectedMovieId, setSelectedMovieId] = useState<string>(

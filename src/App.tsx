@@ -40,7 +40,7 @@ const App: FC<{}> = () => {
           return {
             id: movie.episode_id.toString(),
             title: movie.title,
-            release_date: movie.release_date,
+            release_date: movie.release_date.split('-')[0],
             poster: tmdbData.poster_path
               ? `https://image.tmdb.org/t/p/w500${tmdbData.poster_path}`
               : "", // Use the poster URL from TMDB if available

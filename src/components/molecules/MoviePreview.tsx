@@ -15,7 +15,7 @@ const moviePreviewStyle: CSSProperties = {
 };
 
 const descriptionContainerStyle: CSSProperties = {
-  maxHeight: "50px", // Adjust the max height as needed
+  maxHeight: (window.innerWidth <= 767 ? "100%" : "50px"), // Adjust the max height as needed
   overflowY: "auto",
   padding: "10px",
 };

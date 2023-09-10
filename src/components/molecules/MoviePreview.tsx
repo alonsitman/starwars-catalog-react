@@ -75,9 +75,9 @@ const MoviePreview: FC<MoviePreviewProps> = ({
           }}
         >
           {isFavorite ? (
-            <span style={{ color: "red", fontSize: "24px" }}>&#10084;</span>
+            <i className="fas fa-heart" style={{ color: "red", fontSize: "45px" }}></i>
           ) : (
-            <span style={{ color: "gray", fontSize: "24px" }}>&#10084;</span>
+            <i className="far fa-heart" style={{ color: "gray", fontSize: "45px" }}></i>
           )}
         </button>
       </div>
